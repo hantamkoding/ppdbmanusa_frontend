@@ -20,7 +20,7 @@
 								:append-icon="data.showPwd ? 'mdi-eye' : 'mdi-eye-off'"
 								@click:append="data.showPwd ? data.showPwd = false : data.showPwd = true"
 								v-model="data.password"
-								:counter="6"
+								:counter="5"
 								:type="!data.showPwd ? 'password' : 'text'"
 								:rules="rules.password"
 								required
@@ -64,7 +64,7 @@
 					],
 					password: [
 						v => !!v || 'Password wajib di isi',
-						v => v.length >= 6 || 'Password minimal 6 karakter'
+						v => v.length >= 5 || 'Password minimal 6 karakter'
 					]
 
 				}
@@ -72,6 +72,13 @@
 		},
 		methods: {
 			submit () {
+				let vm = this;
+				this.axios.post('login', {
+					username: vm.data.username,
+					password: vm.data.password
+				}).then((d) => {
+					window.console.log(d);
+				})
 				bus.$emit('pesan', {
 					success: true,
 					pesan: 'google.com'

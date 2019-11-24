@@ -6,10 +6,10 @@
       {{ pesan }}
       <v-btn
         color="white"
-        text
-        @click="snackbar = false"
+        @click="snackbar = false" 
+        icon
       >
-        Tutup
+        <v-icon>mdi-close</v-icon>
       </v-btn>
 	</v-snackbar>
 </template>
