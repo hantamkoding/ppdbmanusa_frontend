@@ -759,6 +759,9 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@mdi/font@/home/deve/hd/data/www/docs_plugin/vuetify/node_modules/@mdi/font":
+  version "3.8.95"
+
 "@mdi/js@^4.5.95":
   version "4.5.95"
   resolved "https://registry.npm.taobao.org/@mdi/js/download/@mdi/js-4.5.95.tgz#f9d12c03b9f848001c82fbdcd1aa445a6c9c8d67"
