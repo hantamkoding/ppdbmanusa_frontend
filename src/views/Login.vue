@@ -77,12 +77,13 @@
 					username: vm.data.username,
 					password: vm.data.password
 				}).then((d) => {
+					bus.$emit('pesan', {
+						success: true,
+						pesan: 'google.com'
+					});
 					window.console.log(d);
 				})
-				bus.$emit('pesan', {
-					success: true,
-					pesan: 'google.com'
-				});
+				
 			}
 		},
 		watch: {
