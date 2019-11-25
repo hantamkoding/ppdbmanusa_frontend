@@ -11,6 +11,9 @@ const routes = [
     component: Home,
     meta: {
       title: 'Halaman Beranda'
+    },
+    redirect: {
+      name: 'login'
     }
   },
   {

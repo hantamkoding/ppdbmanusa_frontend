@@ -73,15 +73,15 @@
 		methods: {
 			submit () {
 				let vm = this;
+				window.console.log(this.dataBase);
 				this.axios.post('login', {
 					username: vm.data.username,
 					password: vm.data.password
 				}).then((d) => {
 					bus.$emit('pesan', {
-						success: true,
-						pesan: 'google.com'
+						success: d.data.status,
+						pesan: d.data.pesan
 					});
-					window.console.log(d);
 				})
 				
 			}

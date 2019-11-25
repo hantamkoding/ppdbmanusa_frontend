@@ -29,7 +29,6 @@
 				vm.snackbar = true;
 				vm.pesan = data.pesan;
 				vm.color = ( data.success ? 'success' : 'danger' );
-				window.console.log(data);
 			});
 		}
 	}
