@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+// import Home from '../views/Home.vue'
+import '@/plugins/auth'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
-    meta: {
-      title: 'Halaman Beranda'
-    },
     redirect: {
       name: 'login'
     }
@@ -25,6 +21,34 @@ const routes = [
     }
   },
   {
+    path: '/panel',
+    name: 'Panel',
+    component: () => import('@/layouts/Admin'),
+    beforeEnter: (to, from, next) => {
+      if (Vue.$auth.status) {
+        next(true);
+      }  else {
+        next({
+          replace: true,
+          name: 'login'
+        })
+      }
+    },
+    meta: {
+      title: 'AdminPanel'
+    },
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/404'),
+        meta: {
+          title: 'Halaman Beranda'
+        }
+      }
+    ]
+  },
+  {
     path: '*',
     name: '404',
     component: () => import('@/views/404'),
@@ -34,6 +58,8 @@ const routes = [
   },
   
 ]
+
+
 
 const router = new VueRouter({
   routes

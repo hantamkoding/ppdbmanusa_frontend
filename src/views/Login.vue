@@ -73,15 +73,22 @@
 		methods: {
 			submit () {
 				let vm = this;
-				window.console.log(this.dataBase);
 				this.axios.post('login', {
 					username: vm.data.username,
 					password: vm.data.password
 				}).then((d) => {
+					if (d.status) {
+						vm.$db.set('auth_user', d.data.data);
+						this.$router.replace({
+                         name: 'Dashboard'
+                        })
+					}
 					bus.$emit('pesan', {
 						success: d.data.status,
 						pesan: d.data.pesan
 					});
+				}).catch((e) => {
+					window.console.log(e);
 				})
 				
 			}
@@ -89,6 +96,7 @@
 		watch: {
 		},
 		mounted () {
+			window.console.log(this.$auth);
 		}
 	}
 </script>

@@ -1,34 +1,38 @@
 "use strict";
 
-import Vue from 'vue';
+import Vue from 'vue'
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
 
-const _db = {
-  store: 'asdasd'
-}
+VueCookies.config('7d')
 
-MyPlugin.install = function (Vue, options) {
-  // 1. add global method or property
-  Vue.myGlobalMethod = function () {
-    // some logic ...
+let _db = {
+  set: function (key, data) {
+    return window.$cookies.set(key, data);
+  },
+  get: function (key) {
+    return window.$cookies.get(key);
+  },
+  remove: function (key) {
+    return window.$cookies.remove(key);
   }
+};
 
-  // 2. add a global asset
-  Vue.directive('my-directive', {
-    bind (el, binding, vnode, oldVnode) {
-      // some logic ...
-    }
-  })
+const MyPlugin = {
+  install(Vue) {
+    Window.$db = _db; 
+    Vue.$db = _db; 
+    Object.defineProperties(Vue.prototype, {
+      $db: {
+        get() {
+          return _db;
+        }
+      },
+    });
 
-  // 3. inject some component options
-  Vue.mixin({
-    created: function () {
-      // some logic ...
-    }
-  })
 
-  // 4. add an instance method
-  Vue.prototype.$myMethod = function (methodOptions) {
-    // some logic ...
   }
-}
+};
 
+Vue.use(MyPlugin)
+export default MyPlugin;
