@@ -1,53 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Home from '../views/Home.vue'
-import '@/plugins/auth'
-
+import _auth from '@/plugins/auth'
+import Panel from './Panel'
+// import Store from '@/store'
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
     redirect: {
-      name: 'login'
+      name: 'Login'
     }
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: () => import('@/views/Login'),
+    beforeEnter: (to, from, next) => {
+      if (_auth.status) {
+        next({
+          replace: true,
+          name: 'Dashboard'
+        })
+      }  else {
+        next(true);
+      }
+    },
+
     meta: {
       title: 'Halaman Masuk'
     }
+
   },
-  {
-    path: '/panel',
-    name: 'Panel',
-    component: () => import('@/layouts/Admin'),
-    beforeEnter: (to, from, next) => {
-      if (Vue.$auth.status) {
-        next(true);
-      }  else {
-        next({
-          replace: true,
-          name: 'login'
-        })
-      }
-    },
-    meta: {
-      title: 'AdminPanel'
-    },
-    children: [
-      {
-        path: 'dashboard',
-        name: 'Dashboard',
-        component: () => import('@/views/404'),
-        meta: {
-          title: 'Halaman Beranda'
-        }
-      }
-    ]
-  },
+  Panel, 
   {
     path: '*',
     name: '404',

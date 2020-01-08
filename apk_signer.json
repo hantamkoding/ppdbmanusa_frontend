@@ -1,0 +1,6 @@
+{
+	"file": "/home/deve/projects/master/vue/src-cordova/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+	"alias": "master",
+	"keystore": "/home/deve/projects/master/vue/master.keystore",
+	"storepass": "pangat"
+}

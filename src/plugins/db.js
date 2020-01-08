@@ -1,5 +1,3 @@
-"use strict";
-
 import Vue from 'vue'
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)
@@ -20,19 +18,11 @@ let _db = {
 
 const MyPlugin = {
   install(Vue) {
-    Window.$db = _db; 
+    window.$db = _db; 
     Vue.$db = _db; 
-    Object.defineProperties(Vue.prototype, {
-      $db: {
-        get() {
-          return _db;
-        }
-      },
-    });
-
-
+    Vue.prototype.$db =  _db;
   }
 };
 
-Vue.use(MyPlugin)
-export default MyPlugin;
+Vue.use(MyPlugin);
+export default _db;

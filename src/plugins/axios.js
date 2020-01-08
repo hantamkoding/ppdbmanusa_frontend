@@ -1,11 +1,11 @@
-"use strict";
-
 import Vue from 'vue';
 import axios from "axios";
 import Config from '@/config';
+import _toast from './toast';
+// import _auth from './auth'
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
-// axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+// axios.defaults.headers.common['Authorization'] = (_auth.status ? 'Bearer ' + _auth.data.token : null);
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 
 let config = {
@@ -35,7 +35,7 @@ _axios.interceptors.response.use(
     return response;
   },
   function(error) {
-    // Do something with response error
+    _toast.app_error(error);
     return Promise.reject(error);
   }
 );
@@ -60,4 +60,4 @@ Plugin.install = function(Vue) {
 
 Vue.use(Plugin)
 
-export default Plugin;
+export default _axios;

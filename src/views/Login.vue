@@ -1,14 +1,13 @@
 <template>
-	<v-container>
-		<v-row justify="center" align="center" style="height: 100vh">
-			<v-col md="4">
-				<v-card class="p-2" :dark="db.state.config.dark">
+	<v-container class="fill-height">
+		<v-row justify="center" align="center">
+			<v-col md="6" lg="4">
+				<v-card class="p-2">
 					<v-card-title>Halaman Masuk</v-card-title>
 					<v-card-text>
 						Masukan data pengguna untuk masuk
 						<v-form v-model="valid">
 							<v-text-field
-								ref="from"
 								prepend-icon="mdi-account"
 								v-model="data.username"
 								:counter="10"
@@ -37,21 +36,13 @@
 				</v-card>
 			</v-col> 
 		</v-row>
-		<pesan/>
 	</v-container>
 </template>
 <script>
-	import db from '@/store'
-	import Pesan from '@/components/Pesan'
-	import bus from '@/bus'
 	export default {
-		components: {
-			Pesan
-		},
 		data: () => {
 			return  {
 				valid: false,
-				db,
 				data: {
 					username: '',
 					password: '',
@@ -73,30 +64,26 @@
 		methods: {
 			submit () {
 				let vm = this;
-				this.axios.post('login', {
-					username: vm.data.username,
-					password: vm.data.password
+				vm.$axios.post('login', {
+					username: this.data.username,
+					password: this.data.password
 				}).then((d) => {
-					if (d.status) {
+					if (d.data.status) {
 						vm.$db.set('auth_user', d.data.data);
-						this.$router.replace({
-                         name: 'Dashboard'
-                        })
+						vm.$auth.refresh();
+						vm.$user.get().then(() => {
+							vm.$router.replace({
+								name: 'Dashboard'
+							})
+						});
 					}
-					bus.$emit('pesan', {
-						success: d.data.status,
-						pesan: d.data.pesan
-					});
-				}).catch((e) => {
-					window.console.log(e);
+					vm.$pesan.pesan(d.data.status, d.data.pesan);
 				})
-				
 			}
 		},
 		watch: {
 		},
 		mounted () {
-			window.console.log(this.$auth);
 		}
 	}
 </script>
