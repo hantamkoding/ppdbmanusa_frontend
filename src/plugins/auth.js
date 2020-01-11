@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import _db from './db' ;
-import _router from '@/router'
+import _router from '@/router';
 const _auth_data = _db.get('auth_user');
 const _auth = {
   data: _auth_data,

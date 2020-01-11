@@ -16,9 +16,9 @@ Vue.toasted.register('app_error', 'Maaf terjadi kesalaham aplikasi..', {
 const _pesan = {
 	pesan: function(Status, Pesan) {
 		if (Status) {
-			_pesan.success(Pesan);
+			_pesan.success(Pesan, 'Sukses');
 		} else {
-			_pesan.error(Pesan);
+			_pesan.error(Pesan, 'Gagal');
 		}
 	},
 	success: function(Pesan, title) {

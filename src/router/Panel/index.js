@@ -1,4 +1,6 @@
-import User from './User/index'
+import User from './User'
+import Pendaftaran from './Pendaftaran'
+import Peserta from './Peserta'
 import _auth from '@/plugins/auth'
 export default {
     path: '/panel',
@@ -27,5 +29,7 @@ export default {
         }
       },
       ...User,
+      ...Pendaftaran,
+      ...Peserta,
     ]
 }

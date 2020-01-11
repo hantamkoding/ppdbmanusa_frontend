@@ -12,7 +12,7 @@
         <v-text-field
          label="Nama"
          v-model="data.name"
-         :rules="rules.name"
+         :rules="[$formRules.required, ...rules.name]"
          :counter="40"
          required
         ></v-text-field>
@@ -28,14 +28,14 @@
          label="No. Telp"
          type="number"
          v-model="data.no_telp"
-         :rules="rules.required"
+         :rules="[$formRules.required]"
          required
         ></v-text-field>
 
         <v-textarea
           label="Alamat Lengkap"
           v-model="data.alamat"
-          :rules="rules.required"
+          :rules="[$formRules.required]"
         ></v-textarea>
 
         <v-btn
@@ -56,22 +56,16 @@
 </template>
 <script>
  import _user from '@/plugins/user'
- import _formRules from '@/store/formRules'
 	export default {
 		data: () => {
 			return {
 				valid: true,
         data: _user.data,
         rules: {
-         required: [
-          ..._formRules.required,
-         ],
          name: [
-          ..._formRules.required,
           v => v.length <= 40 || 'Nama tidak boleh melebihi 40 karakter'  
          ],
          email: [
-          ..._formRules.required,
           v => /.+@.+/.test(v) || 'Email yang kamu masukan tidak valid',
          ]
         }
@@ -79,7 +73,7 @@
 		},
     methods: {
      submit: function () {
-      this.$axios.post('user/update_profile', this.data, {headers: this.$auth.hr()}).then((d) => {
+      this.$axios.post('user/update_profile', this.data).then((d) => {
        this.$pesan.pesan(d.data.status, d.data.pesan);
       });
      }

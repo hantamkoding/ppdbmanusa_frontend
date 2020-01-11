@@ -32,16 +32,13 @@
   </v-app>
 </template>
 <script>
-  import _formRules from '@/store/formRules'
   export default {
     data () {
       return {
         img: this.$user.data.img,
         file: null,
         rules: {
-         required: [
-          ..._formRules.required,
-         ],
+
         },
         valid: false
       }
@@ -55,7 +52,7 @@
       submit: function () {
          let formData= new FormData();
          formData.append('file', this.file);
-         this.axios.post('user/update_foto', formData, {headers: {...this.$auth.hr(), 'Content-Type': 'multipart/form-data'}}).then((d) => {
+         this.axios.post('user/update_foto', formData, {headers: {'Content-Type': 'multipart/form-data'}}).then((d) => {
              this.img = d.data.data.img;
              this.$user.get().then(() => {
                this.$pesan.pesan(d.data.status, d.data.pesan);

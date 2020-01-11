@@ -3,7 +3,7 @@
 
     <v-app-bar
       app
-      color="deep-purple accent-4"
+      color="green lighten-1"
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>

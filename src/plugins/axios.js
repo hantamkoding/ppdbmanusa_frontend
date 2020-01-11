@@ -2,7 +2,7 @@ import Vue from 'vue';
 import axios from "axios";
 import Config from '@/config';
 import _toast from './toast';
-// import _auth from './auth'
+import _auth from './auth';
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = (_auth.status ? 'Bearer ' + _auth.data.token : null);
@@ -20,6 +20,9 @@ const _axios = axios.create(config);
 _axios.interceptors.request.use(
   function(config) {
     // Do something before request is sent
+    if (_auth.refresh().status) {
+      config.headers.Authorization = 'Bearer ' + _auth.refresh().data.token;
+    }
     return config;
   },
   function(error) {
@@ -36,6 +39,7 @@ _axios.interceptors.response.use(
   },
   function(error) {
     _toast.app_error(error);
+    window.console.log(error.response);
     return Promise.reject(error);
   }
 );
