@@ -19,6 +19,14 @@ export default [
           title: 'Ubah Foto profile'
         }
       },
+      {
+        path: 'password',
+        name: 'userPassword',
+        component: () => import('@/views/Panel/User/Password'),
+        meta: {
+          title: 'Ubah Password'
+        }
+      },
     ]
   }
 ]

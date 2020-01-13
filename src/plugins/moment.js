@@ -1,5 +1,7 @@
 import Vue from 'vue'
-import _moment from 'moment'
+import moment from 'moment'
+import 'moment/locale/id'
+const _moment = moment;
 
 const MyPlugin = {
   install(Vue) {

@@ -36,6 +36,13 @@
             <v-list-item-content>Ubah Profile</v-list-item-content>
           </v-list-item>
 
+          <v-list-item :to="{ name: 'userPassword' }" replace link>
+            <v-list-item-action>
+              <v-icon>mdi-lock</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>Ubah Password</v-list-item-content>
+          </v-list-item>
+
           <v-list-item @click="$auth.logout()" replace link>
             <v-list-item-action>
               <v-icon>mdi-logout-variant</v-icon>

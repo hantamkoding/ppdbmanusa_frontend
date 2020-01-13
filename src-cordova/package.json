@@ -1,8 +1,8 @@
 {
-  "name": "com.vue.example.app",
-  "displayName": "VueExampleAppName",
+  "name": "id.my.hantamkoding.ppd.manusa",
+  "displayName": "PPDB Manusa",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "Aplikasi PPDB SMK Ma'arif NU 1 Ajibarang",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,7 @@
   "keywords": [
     "ecosystem:cordova"
   ],
-  "author": "Apache Cordova Team",
+  "author": "Hantam Koding",
   "license": "Apache-2.0",
   "dependencies": {
     "cordova-android": "^8.1.0",

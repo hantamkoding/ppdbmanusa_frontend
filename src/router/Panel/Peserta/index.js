@@ -12,9 +12,9 @@ export default [
         }
       },
       {
-        path: '/',
+        path: 'lists/:pendaftaran_id',
         name: 'PesertaLists',
-        component: () => import('@/views/Panel/Peserta/Pendaftaran'),
+        component: () => import('@/views/Panel/Peserta/Lists'),
         meta: {
           title: 'Pilih Daftar Pendaftarans'
         }
@@ -28,11 +28,27 @@ export default [
         }
       },
       {
-        path: ':id/register',
+        path: 'register/:pendaftaran_id',
         name: 'PesertaRegister',
         component: () => import('@/views/Panel/Peserta/Register'),
         meta: {
           title: 'Formulir Pendaftaran'
+        }
+      },
+      {
+        path: ':id/detail',
+        name: 'PesertaDetail',
+        component: () => import('@/views/Panel/Peserta/Register'),
+        meta: {
+          title: 'Formulir Pendaftaran'
+        }
+      },
+      {
+        path: ':id/print/pendaftaran',
+        name: 'PesertaPrintPendaftaran',
+        component: () => import('@/views/Panel/Peserta/Print/Pendaftaran'),
+        meta: {
+          title: 'Print Pendaftaran'
         }
       },
     ]

@@ -11,13 +11,13 @@
       >
         <template v-slot:item.action="{ item }">
           <v-btn class="mr-1" small :to="{name: 'PesertaLists', params: {
-            id: item.id
+            pendaftaran_id: item.id
           }}" color="primary" outlined rounded>
             <v-icon small left>mdi-account-group</v-icon> Lihat
           </v-btn>  
 
           <v-btn small :to="{name: 'PesertaRegister', params: {
-            id: item.id
+            pendaftaran_id: item.id
           }}" color="success" outlined rounded>
             <v-icon small left>mdi-account-plus-outline</v-icon> Tambah 
           </v-btn>
@@ -45,15 +45,18 @@
     },
 
     methods: {
-      getData: function () {
-         this.axios.get('pendaftaran').then((d) => {
+      getPendaftaran: function () {
+       return this.axios.get('pendaftaran').then((d) => {
           this.table.items = d.data;
-         })
-      }
+       })
+      },
+      // async getData: function () {
+        
+      // }
     },
 
     created () {
-      this.getData();
+      this.getPendaftaran();
     }
 
   }

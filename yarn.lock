@@ -7423,6 +7423,11 @@ pretty-error@^2.0.2:
     renderkid "^2.0.1"
     utila "~0.4"
 
+printd@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/printd/-/printd-1.4.1.tgz#91630efe62cb29cfd4618b7fe52cb4951078c6f5"
+  integrity sha512-o0hgy++tRs0whq4eo+6Rzafr7PNf2KINlzUO5dl+83wcxzSS7ZIqTp2JWbLW1D6sJJ8r7eM/boMyyYCuGruDpw==
+
 private@^0.1.6:
   version "0.1.8"
   resolved "https://registry.npm.taobao.org/private/download/private-0.1.8.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fprivate%2Fdownload%2Fprivate-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -9517,6 +9522,11 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.npm.taobao.org/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
+
+vue-html-to-paper@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-html-to-paper/-/vue-html-to-paper-1.1.1.tgz#dd6865500e6b25471e0558bee9f413c262d06230"
+  integrity sha512-Dk65vtHZTvOG0x40hKCbmaqjOsIPU077kJquc3AwV5PuFNsRJxXYte1TPX8ZOv+aQP0mhxKVIYPwiANLLtTm3w==
 
 vue-loader@^15.7.0:
   version "15.7.2"

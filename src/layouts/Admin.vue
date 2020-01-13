@@ -7,7 +7,9 @@
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>{{ $config.title }}</v-toolbar-title>
+      <v-toolbar-title>
+        <v-icon>mdi-school</v-icon> {{ $config.title }}
+      </v-toolbar-title>
       <div class="flex-grow-1"></div>
     </v-app-bar>
 
@@ -20,7 +22,6 @@
 
     <v-content>
       <v-container fluid>
-
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>
