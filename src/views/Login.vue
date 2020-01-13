@@ -1,9 +1,9 @@
 <template>
-	<v-container class="fill-height">
-		<v-row justify="center" align="center">
+	<v-container fluid class="fill-height bg-full">
+		<v-row justify="center" align="center" style="overflow: hidden;">
 			<v-col md="6" lg="4">
 				<v-card class="p-2">
-					<v-card-title>Halaman Masuk</v-card-title>
+					<v-card-title>{{ $config.school }}</v-card-title>
 					<v-card-text>
 						Masukan data pengguna untuk masuk
 						<v-form v-model="valid">
@@ -87,3 +87,10 @@
 		}
 	}
 </script>
+<style>
+	.bg-full {
+		background: url("../assets/imgs/bg-pattern.png"), #7b4397;
+		background: url("..//assets/imgs/bg-pattern.png"), linear-gradient(to left, #7b4397, #dc2430);
+		overflow: hidden;
+	}
+</style>

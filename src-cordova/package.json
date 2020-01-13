@@ -1,8 +1,8 @@
 {
-  "name": "id.my.hantamkoding.ppd.manusa",
-  "displayName": "PPDB Manusa",
+  "name": "id.my.hantamkoding.ppdb.manusa",
+  "displayName": "PPDB 2020 Manusa",
   "version": "1.0.0",
-  "description": "Aplikasi PPDB SMK Ma'arif NU 1 Ajibarang",
+  "description": "Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

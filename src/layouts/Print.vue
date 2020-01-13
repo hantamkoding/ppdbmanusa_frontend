@@ -9032,8 +9032,10 @@ th{
 .printframe {
   padding: 3% 10%;
   background: #ddd;
+  overflow: scroll;
 }
 .printpage {
+  min-width: 800px;
   background: #fff;
   padding:1.5cm;
   box-shadow:0 2px 10px rgba(0,0,0,0.3);

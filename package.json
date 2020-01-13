@@ -1,6 +1,8 @@
 {
-  "name": "testing_vue",
+  "name": "ppd2020manusa",
   "version": "0.1.0",
+  "author": "Hantam Koding",
+  "description": "Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang",
   "private": true,
   "scripts": {
     "start": "serve -s dist",

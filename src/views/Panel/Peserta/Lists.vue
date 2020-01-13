@@ -41,13 +41,24 @@
         <template v-slot:item.action="{ item }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn icon v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
+              <v-btn rounded outlined v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
                 id: item.id
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>
               </v-btn> 
             </template>
             <span>Print No. Pendaftaran</span>
+          </v-tooltip>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn class="ml-1" rounded outlined v-on="on" :to="{name: 'PesertaPindahJurusan', params: {
+                id: item.id
+              }}" color="primary">
+                <v-icon small>mdi-account-arrow-right-outline</v-icon>
+              </v-btn> 
+            </template>
+            <span>Peserta Pindah Jurusan</span>
           </v-tooltip>
 
         </template>

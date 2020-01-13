@@ -51,6 +51,14 @@ export default [
           title: 'Print Pendaftaran'
         }
       },
+      {
+        path: ':id/pindah',
+        name: 'PesertaPindahJurusan',
+        component: () => import('@/views/Panel/Peserta/PindahJurusan'),
+        meta: {
+          title: 'Pindah Jurusan'
+        }
+      },
     ]
   }
 ]

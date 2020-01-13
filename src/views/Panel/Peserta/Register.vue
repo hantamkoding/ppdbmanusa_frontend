@@ -238,7 +238,7 @@
             this.$pesan.pesan(d.data.status, d.data.pesan);
             if (d.data.status) {
               this.$router.replace({
-                name: 'PesertaDetail',
+                name: 'PesertaPrintPendaftaran',
                 params: {
                   id: d.data.data.id
                 }

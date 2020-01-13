@@ -84,6 +84,15 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item :to="{name: 'PengumumanInputKode'}" replace>
+          <v-list-item-action>
+            <v-icon>mdi-clipboard-check-outline</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Pengumuman
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list-item-group>
     </v-list>
   </v-app>
