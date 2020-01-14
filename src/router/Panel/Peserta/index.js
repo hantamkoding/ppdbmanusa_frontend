@@ -8,7 +8,7 @@ export default [
         name: 'PesertaListsPendaftaran',
         component: () => import('@/views/Panel/Peserta/Pendaftaran'),
         meta: {
-          title: 'Pilih Daftar Pendaftarans'
+          title: 'Daftar Peserta Pendaftaran'
         }
       },
       {
@@ -16,7 +16,7 @@ export default [
         name: 'PesertaLists',
         component: () => import('@/views/Panel/Peserta/Lists'),
         meta: {
-          title: 'Pilih Daftar Pendaftarans'
+          title: 'Daftar Peserta Pendaftaran'
         }
       },
       {

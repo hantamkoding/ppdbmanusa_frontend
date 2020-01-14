@@ -2,7 +2,7 @@
   <v-app>
     <v-card v-if="pendaftaran">
       <v-card-title>
-        Daftar Peserta Pendaftaran
+        Daftar Pengumuman Peserta
         <div class="flex-grow-1"></div>
         <v-btn color="primary" outlined rounded @click="getPeserta">
           <v-icon left>mdi-refresh</v-icon> refresh
@@ -39,32 +39,43 @@
         :search="filter.search"
       >
         <template v-slot:item.action="{ item }">
+
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn rounded outlined v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
+              <v-btn @click="action(item.id, true)" class="ml-1" rounded outlined v-on="on" color="success">
+                <v-icon small>mdi-check</v-icon>
+              </v-btn> 
+            </template>
+            <span>Terima Peserta</span>
+          </v-tooltip>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn @click="action(item.id, false)" class="ml-1" rounded outlined v-on="on" color="red">
+                <v-icon small>mdi-close</v-icon>
+              </v-btn> 
+            </template>
+            <span>Tolak Peserta</span>
+          </v-tooltip>
+
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn class="ml-1" rounded outlined v-on="on" :to="{name: 'PengumumanPrint', params: {
                 id: item.id
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>
               </v-btn> 
             </template>
-            <span>Print No. Pendaftaran</span>
-          </v-tooltip>
-
-          <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
-              <v-btn class="ml-1" rounded outlined v-on="on" :to="{name: 'PesertaPindahJurusan', params: {
-                id: item.id
-              }}" color="primary">
-                <v-icon small>mdi-account-convert</v-icon>
-              </v-btn> 
-            </template>
-            <span>Peserta Pindah Jurusan</span>
+            <span>Print Pengumuman</span>
           </v-tooltip>
 
         </template>
 
-        <template v-slot:item.tgl_daftar="{ item }">
-          {{ $moment(item.created_at).format('dddd, DD MMM. YYYY HH:mm') }}
+        <template v-slot:item.pengumuman="{ item }">
+          <v-chip v-if="item.hasil == null" color="red" dark>Belum ada data</v-chip>
+          <v-chip v-else-if="item.hasil == true" color="success" dark>Diterima</v-chip>
+          <v-chip v-else-if="item.hasil == false" color="red" dark>Tidak diterima</v-chip>
         </template>
       </v-data-table>
     </v-card>
@@ -88,7 +99,7 @@
             { text: 'No. Pendaftaran', value: 'no_pendaftaran' },
             { text: 'Nama', value: 'nama' },
             { text: 'Jurusan', value: 'jurusan_1' },
-            { text: 'Tgl. & Waktu Daftar', value: 'tgl_daftar' },
+            { text: 'Status', value: 'pengumuman' },
             // { text: 'Tgl.Start', value: 'tgl_start' },
             { text: 'Aksi', value: 'action' },
           ],
@@ -107,11 +118,11 @@
     methods: {
       getPendaftaran: function () {
         return this.axios.get('pendaftaran/show/'+this.pendaftaran_id).then((d) => {
-          window.console.log(d);
           this.pendaftaran = d.data
          })
 
       },
+
       getJurusan: function () {
         return this.axios.get('master/jurusan').then((d) => {
           this.db.jurusan = d.data;
@@ -119,8 +130,19 @@
          })
       },
       getPeserta: function () {
-         this.axios.get(`peserta/${this.pendaftaran_id}`).then((d) => {
+         this.axios.get(`pengumuman/${this.pendaftaran_id}`).then((d) => {
           this.table.items = d.data;
+         })
+      },
+      action: function (id, status) {
+         this.axios.post(`pengumuman/action`, {
+          id: id,
+          status: status
+         }).then((d) => {
+          if (d.data.status) {
+            this.getPeserta();
+          }
+          this.$pesan.pesan(d.data.status, d.data.pesan);
          })
       },
     },

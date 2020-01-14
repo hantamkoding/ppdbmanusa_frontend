@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="id.my.hantamkoding.ppdb.manusa" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>PPD2020MANUSA</name>
+    <name>PPDB 2020 Manusa</name>
     <description>
         Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang
     </description>
@@ -20,11 +20,6 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon src="res/icon/android/drawable-mdpi/ic_launcher.png" density="mdpi" />
-        <icon src="res/icon/android/drawable-hdpi/ic_launcher.png" density="hdpi" />
-        <icon src="res/icon/android/drawable-xhdpi/ic_launcher.png" density="xhdpi" />
-        <icon src="res/icon/android/drawable-xxhdpi/ic_launcher.png" density="xxhdpi" />
-        <icon src="res/icon/android/drawable-xxxhdpi/ic_launcher.png" density="xxxhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />

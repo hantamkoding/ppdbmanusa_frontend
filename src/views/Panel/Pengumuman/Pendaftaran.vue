@@ -2,7 +2,7 @@
   <v-app>
     <v-card>
       <v-card-title>
-        Lihat Peserta Pendaftaran
+        Lihat Pengumuman Peserta Pendaftaran
         <div class="flex-grow-1"></div>
       </v-card-title>
       <v-data-table
@@ -10,17 +10,11 @@
         :items="table.items"
       >
         <template v-slot:item.action="{ item }">
-          <v-btn class="mr-1" small :to="{name: 'PesertaLists', params: {
+          <v-btn class="mr-1" small :to="{name: 'PengumumanLists', params: {
             pendaftaran_id: item.id
           }}" color="primary" outlined rounded>
             <v-icon small left>mdi-account-group</v-icon> Lihat
           </v-btn>  
-
-          <v-btn small :to="{name: 'PesertaRegister', params: {
-            pendaftaran_id: item.id
-          }}" color="success" outlined rounded>
-            <v-icon small left>mdi-account-plus-outline</v-icon> Tambah 
-          </v-btn>
 
         </template>
       </v-data-table>

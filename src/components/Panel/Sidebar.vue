@@ -66,7 +66,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'Pendaftaran'}" replace>
+<!--         <v-list-item :to="{name: 'Pendaftaran'}" replace>
           <v-list-item-action>
             <v-icon>mdi-clipboard-account-outline</v-icon>
           </v-list-item-action>
@@ -74,7 +74,7 @@
               Pendaftaran
           </v-list-item-content>
         </v-list-item>
-
+ -->
         <v-list-item :to="{name: 'PesertaListsPendaftaran'}" replace>
           <v-list-item-action>
             <v-icon>mdi-account</v-icon>
@@ -84,7 +84,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'PengumumanInputKode'}" replace>
+        <v-list-item :to="{name: 'PengumumanListsPendaftaran'}" replace>
           <v-list-item-action>
             <v-icon>mdi-clipboard-check-outline</v-icon>
           </v-list-item-action>
