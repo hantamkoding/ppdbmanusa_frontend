@@ -38,28 +38,14 @@
             </thead>
             <tbody>
               <tr>
-                <td colspan="2"><b>Jalur Umum</b></td>
+                <td colspan="2"><b>Jalur Peminatan</b></td>
                 <td></td>
                 <td></td>
                 <td></td>
               </tr>
               <tr>
                 <td>1</td>
-                <td>Surat Tanda Lulus</td>
-                <td align="center">1</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>SKHUN/SKHUS</td>
-                <td align="center">1</td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>FC Kartu Keluarga </td>
+                <td>FC Rapor Kelas semester 1 </td>
                 <td align="center">1</td>
                 <td></td>
                 <td></td>

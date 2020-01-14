@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "author": "Hantam Koding",
   "description": "Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/hantamkoding/ppdbmanusa_frontend.git"
+  },
   "private": true,
   "scripts": {
     "start": "serve -s dist",
@@ -23,6 +27,7 @@
     "cordova-serve-ios": "cross-env CORDOVA_PLATFORM=ios vue-cli-service cordova-serve-ios",
     "cordova-serve-osx": "cross-env CORDOVA_PLATFORM=osx vue-cli-service cordova-serve-osx",
     "electron:build": "vue-cli-service electron:build",
+    "gh-publish": "vue-cli-service electron:build -p always",
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
@@ -30,6 +35,8 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.3.2",
+    "electron-log": "^4.0.3",
+    "electron-updater": "^4.2.0",
     "moment": "^2.24.0",
     "printd": "^1.4.1",
     "vue": "^2.6.10",

@@ -1,6 +1,6 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, dialog } from 'electron'
 import {
   createProtocol,
   installVueDevtools
@@ -36,6 +36,36 @@ function createWindow () {
   })
 }
 
+
+import { autoUpdater } from 'electron-updater'
+
+autoUpdater.logger = require("electron-log");
+autoUpdater.logger.transports.file.level = "info";
+
+autoUpdater.on('update-downloaded', () => {
+  console.log('update-downloaded lats quitAndInstall');
+
+  if (process.env.NODE_ENV === 'production') { 
+    dialog.showMessageBox({
+      type: 'info',
+      title: 'Update Tersedia',
+      message: 'Tersia Update,Apakah akan mengupdate ke versi terbaru ?',
+      buttons: ['Sure', 'No']
+    }, (buttonIndex) => {
+      if (buttonIndex === 0) {
+        const isSilent = true;
+        const isForceRunAfter = true; 
+        autoUpdater.quitAndInstall(isSilent, isForceRunAfter); 
+      } 
+      else {
+        updater.enabled = true
+        updater = null
+      }
+    })
+  }
+  
+})
+
 // Quit when all windows are closed.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
@@ -58,6 +88,7 @@ app.on('activate', () => {
 // Some APIs can only be used after this event occurs.
 app.on('ready', async () => {
   if (isDevelopment && !process.env.IS_TEST) {
+    autoUpdater.checkForUpdates();
     // Install Vue Devtools
     // Devtools extensions are broken in Electron 6.0.0 and greater
     // See https://github.com/nklayman/vue-cli-plugin-electron-builder/issues/378 for more info
