@@ -119,6 +119,7 @@
                   <img :src="$config.base_url + 'assets/imgs/ttd_kepsek.png'" style="width: 150px;">
                 </td>
                 <td style="text-align: center;">
+                  <img :src="$config.base_url + 'assets/imgs/ttd_panitia.png'" style="width: 150px;">
                 </td>
               </tr>
               <tr>

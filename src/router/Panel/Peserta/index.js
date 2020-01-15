@@ -28,6 +28,14 @@ export default [
         }
       },
       {
+        path: ':id/edit',
+        name: 'PesertaEdit',
+        component: () => import('@/views/Panel/Peserta/Kelola'),
+        meta: {
+          title: 'Ubah Biodata Peserta'
+        }
+      },
+      {
         path: 'register/:pendaftaran_id',
         name: 'PesertaRegister',
         component: () => import('@/views/Panel/Peserta/Register'),

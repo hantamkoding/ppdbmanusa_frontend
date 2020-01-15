@@ -4,7 +4,7 @@
       <v-card-title>
         Daftar Pengumuman Peserta
         <div class="flex-grow-1"></div>
-        <v-btn color="primary" outlined rounded @click="getPeserta">
+        <v-btn small color="primary" outlined rounded @click="getPeserta">
           <v-icon left>mdi-refresh</v-icon> refresh
         </v-btn>
       </v-card-title>
@@ -42,7 +42,7 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn @click="action(item.id, true)" class="ml-1" rounded outlined v-on="on" color="success">
+              <v-btn small @click="action(item.id, true)" class="ml-1" rounded outlined v-on="on" color="success">
                 <v-icon small>mdi-check</v-icon>
               </v-btn> 
             </template>
@@ -51,7 +51,7 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn @click="action(item.id, false)" class="ml-1" rounded outlined v-on="on" color="red">
+              <v-btn small @click="action(item.id, false)" class="ml-1" rounded outlined v-on="on" color="red">
                 <v-icon small>mdi-close</v-icon>
               </v-btn> 
             </template>
@@ -61,7 +61,7 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn class="ml-1" rounded outlined v-on="on" :to="{name: 'PengumumanPrint', params: {
+              <v-btn small class="ml-1" rounded outlined v-on="on" :to="{name: 'PengumumanPrint', params: {
                 id: item.id
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>

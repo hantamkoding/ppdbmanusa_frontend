@@ -13,7 +13,7 @@
             </tr>
             <tr>
               <td>Asal Sekolah</td>
-              <td>: {{ JSON.parse(peserta.asal_sekolah).nama }}</td>
+              <td>: {{ peserta.asal_sekolah.nama }}</td>
             </tr>
             <tr>
               <td>Pilihan Jurusan</td>
@@ -45,8 +45,15 @@
               </tr>
               <tr>
                 <td>1</td>
-                <td>FC Rapor Kelas semester 1 </td>
+                <td>FC Ijazah SD</td>
                 <td align="center">1</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Piagam / Sertifikat (Jika ada)</td>
+                <td align="center"></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -100,11 +107,11 @@
                       </tr>
                       <tr>
                         <td>Asal Sekolah</td>
-                        <td>: {{ JSON.parse(peserta.asal_sekolah).nama }}</td>
+                        <td>: {{ peserta.asal_sekolah.nama }}</td>
                       </tr>
                       <tr>
                         <td>TTL</td>
-                        <td>: {{ JSON.parse(peserta.ttl).tempat }}, {{ $moment(JSON.parse(peserta.ttl).tgl).format('DD MMMM YYYY') }}</td>
+                        <td>: {{ peserta.ttl.tempat }}, {{ $moment(peserta.ttl.tgl).format('DD MMMM YYYY') }}</td>
                       </tr>
                       <tr>
                         <td>Pilihan Jurusan</td>

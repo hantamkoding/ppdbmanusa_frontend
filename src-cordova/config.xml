@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="id.my.hantamkoding.ppdb.manusa" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="id.my.hantamkoding.ppdb.manusa" android-versionCode="10001" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>PPDB 2020 Manusa</name>
     <description>
         Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang

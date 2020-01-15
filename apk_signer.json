@@ -1,6 +1,6 @@
 {
-	"file": "/home/deve/projects/master/vue/src-cordova/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk",
-	"alias": "master",
-	"keystore": "/home/deve/projects/master/vue/master.keystore",
+	"file": "/home/deve/projects/ppd2020/vue/src-cordova/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk",
+	"alias": "hantamkoding",
+	"keystore": "/home/deve/master.keystore",
 	"storepass": "pangat"
 }

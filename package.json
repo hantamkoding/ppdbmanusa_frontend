@@ -4,8 +4,8 @@
   "author": "Hantam Koding",
   "description": "Aplikasi PPDB 2020 SMK Ma'arif NU 1 Ajibarang",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/hantamkoding/ppdbmanusa_frontend.git"
+    "type": "git",
+    "url": "https://github.com/hantamkoding/ppdbmanusa_frontend.git"
   },
   "private": true,
   "scripts": {
@@ -35,12 +35,14 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.3.2",
+    "echarts": "^4.6.0",
     "electron-log": "^4.0.3",
     "electron-updater": "^4.2.0",
     "moment": "^2.24.0",
     "printd": "^1.4.1",
     "vue": "^2.6.10",
     "vue-ctk-date-time-picker": "^2.4.0",
+    "vue-echarts": "^4.1.0",
     "vue-html-to-paper": "^1.1.1",
     "vue-router": "^3.1.3",
     "vuetify": "^2.1.0",

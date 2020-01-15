@@ -84,6 +84,15 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item :to="{name: 'NilaiListsPendaftaran'}" replace>
+          <v-list-item-action>
+            <v-icon>mdi-source-fork</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Nilai
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item :to="{name: 'PengumumanListsPendaftaran'}" replace>
           <v-list-item-action>
             <v-icon>mdi-clipboard-check-outline</v-icon>

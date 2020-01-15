@@ -79,6 +79,7 @@
 
               <v-textarea
                 v-model="data.alamat"
+                :rules="[$formRules.required]"
                 label="Alamat Peserta"
                 hint="(*) Masukan Alamat yang lengkap. Meliputi nama jalan / gedung, RT/RW, Desa / Kelurahan, Kecamatan, Kabupaten, dan Provinsi"
               >

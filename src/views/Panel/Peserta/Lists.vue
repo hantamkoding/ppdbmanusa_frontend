@@ -4,7 +4,7 @@
       <v-card-title>
         Daftar Peserta Pendaftaran
         <div class="flex-grow-1"></div>
-        <v-btn color="primary" outlined rounded @click="getPeserta">
+        <v-btn small color="primary" outlined rounded @click="getPeserta">
           <v-icon left>mdi-refresh</v-icon> refresh
         </v-btn>
       </v-card-title>
@@ -41,7 +41,7 @@
         <template v-slot:item.action="{ item }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn rounded outlined v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
+              <v-btn small rounded outlined v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
                 id: item.id
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>
@@ -52,7 +52,18 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn class="ml-1" rounded outlined v-on="on" :to="{name: 'PesertaPindahJurusan', params: {
+              <v-btn small class="ml-1" rounded outlined v-on="on" :to="{name: 'PesertaEdit', params: {
+                id: item.id
+              }}" color="primary">
+                <v-icon small>mdi-account-edit-outline</v-icon>
+              </v-btn> 
+            </template>
+            <span>Ubah Biodata Peserta</span>
+          </v-tooltip>
+
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on }">
+              <v-btn small class="ml-1" rounded outlined v-on="on" :to="{name: 'PesertaPindahJurusan', params: {
                 id: item.id
               }}" color="primary">
                 <v-icon small>mdi-account-convert</v-icon>

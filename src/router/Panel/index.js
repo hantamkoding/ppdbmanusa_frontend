@@ -2,6 +2,7 @@ import User from './User'
 import Pendaftaran from './Pendaftaran'
 import Peserta from './Peserta'
 import Pengumuman from './Pengumuman'
+import Nilai from './Nilai'
 import _auth from '@/plugins/auth'
 export default {
     path: '/panel',
@@ -33,5 +34,6 @@ export default {
       ...Pendaftaran,
       ...Peserta,
       ...Pengumuman,
+      ...Nilai,
     ]
 }
