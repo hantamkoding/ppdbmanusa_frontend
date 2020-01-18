@@ -3,6 +3,7 @@ import Pendaftaran from './Pendaftaran'
 import Peserta from './Peserta'
 import Pengumuman from './Pengumuman'
 import Nilai from './Nilai'
+import Du from './Du'
 import _auth from '@/plugins/auth'
 export default {
     path: '/panel',
@@ -30,10 +31,19 @@ export default {
           title: 'Halaman Beranda'
         }
       },
+      {
+        path: 'print',
+        name: 'Print',
+        component: () => import('@/views/Print'),
+        meta: {
+          title: 'Cetak / Download Document'
+        }
+      },
       ...User,
       ...Pendaftaran,
       ...Peserta,
       ...Pengumuman,
       ...Nilai,
+      ...Du,
     ]
 }

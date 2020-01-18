@@ -102,6 +102,24 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item :to="{name: 'RincianDaftarUlangLists'}" replace>
+          <v-list-item-action>
+            <v-icon>mdi-clipboard-list-outline</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Biaya Daftar Ulang
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item :to="{name: 'PembayaranDaftarUlang'}" replace>
+          <v-list-item-action>
+            <v-icon>mdi-account-cash-outline</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Pembayaran Daftar Ulang
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list-item-group>
     </v-list>
   </v-app>

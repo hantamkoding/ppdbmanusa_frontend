@@ -1,6 +1,5 @@
 <template>
   <v-app>
-
     <v-app-bar
       app
       color="green lighten-1"
@@ -21,8 +20,8 @@
     </v-navigation-drawer>
 
     <v-content>
-      <v-container fluid>
-        <!-- If using vue-router -->
+      <v-container>
+        <v-btn @click="kembali" v-if="$route.name != 'Dashboard'" small outlined rounded>Kembali</v-btn>
         <router-view></router-view>
       </v-container>
     </v-content>
@@ -39,6 +38,9 @@
       source: String,
     },
     methods: {
+      kembali: function () {
+        window.history.back();
+      }
     },
     data: () => ({
       drawer: false,

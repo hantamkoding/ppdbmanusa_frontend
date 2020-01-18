@@ -25,28 +25,28 @@ const _pesan = {
 		return Vue.notify({
 			type: 'success',
 			title: title,
-			text: (Pesan ? Pesan : 'Terjadi Kesalahan Aplikasi....')
+			text: (Pesan ? Pesan : '')
 		});
 	},
 	error: function(Pesan, title) {
 		return Vue.notify({
 			type: 'error',
 			title: title,
-			text: (Pesan ? Pesan : 'Terjadi Kesalahan Aplikasi....')
+			text: (Pesan ? Pesan : '')
 		});
 	},
 	info: function(Pesan, title) {
 		return Vue.notify({
 			type: 'info',
 			title: title,
-			text: (Pesan ? Pesan : 'Terjadi Kesalahan Aplikasi....')
+			text: (Pesan ? Pesan : '')
 		});
 	},
 	app_error: function(Pesan) {
 		return Vue.notify({
 			type: 'error',
-			title: 'Kesalahan Aplikasi',
-			text: (Pesan ? Pesan : 'Terjadi Kesalahan Aplikasi....')
+			title: 'Ooops, Terjadi Kesalahan !!',
+			text: (Pesan ? Pesan : '')
 		});
 	},
 }

@@ -40,12 +40,15 @@
     "electron-updater": "^4.2.0",
     "moment": "^2.24.0",
     "printd": "^1.4.1",
+    "v-currency-field": "^3.0.7",
     "vue": "^2.6.10",
     "vue-ctk-date-time-picker": "^2.4.0",
+    "vue-currency-filter": "^4.0.3",
     "vue-echarts": "^4.1.0",
     "vue-html-to-paper": "^1.1.1",
     "vue-router": "^3.1.3",
     "vuetify": "^2.1.0",
+    "vuetify-confirm": "^2.0.2",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
