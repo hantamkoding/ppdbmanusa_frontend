@@ -1,6 +1,20 @@
 <template>
   <v-app>
-    <v-container v-if="data">
+    <v-row v-if="!data">
+      <v-col cols="12" md="6">
+        <v-skeleton-loader
+          type="card"
+        ></v-skeleton-loader>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-skeleton-loader
+          v-for="index in 5"
+          v-bind:key="index"
+          type="list-item-avatar"
+        ></v-skeleton-loader>
+      </v-col>
+    </v-row>
+    <div v-else>
       <v-row>
         <v-col cols="12" md="5">
           <v-card>
@@ -33,6 +47,41 @@
                 </tr>
               </template>
             </v-simple-table>
+          </v-card>
+          <v-card class="mt-5">
+             <v-card-actions>
+               <v-btn rounded outlined small color="info" :to="{
+                name: 'Print',
+                query: {
+                  url: $config.api_url + 'daftar_ulang/rincian/print/' + data.rincian_du.id
+                }
+               }"><v-icon left small>mdi-printer</v-icon> Print Rincian Biaya</v-btn>
+             </v-card-actions>
+             <v-simple-table>
+              <template v-slot:default>
+                <tr>
+                  <th>Total Biaya Daftar Ulang</th>
+                  <td>:</td>
+                  <td class="text-right"><span class="blue--text">{{ data.total.rincian | currency }}</span></td>
+                </tr>
+                <tr>
+                  <th>Total dibayar Peserta</th>
+                  <td>:</td>
+                  <td class="text-right">{{ data.total.dibayar | currency }}</td>
+                </tr>
+                <tr>
+                  <th>Total Kekurangan</th>
+                  <td>:</td>
+                  <td class="text-right">{{ (data.total.kekurangan) | currency }}</td>
+                </tr>
+              </template>
+            </v-simple-table>
+            <v-card-text class="text-center">
+              Status
+              <v-divider></v-divider>
+              <span v-if="data.total.kekurangan == 0" class="display-1 success--text">LUNAS</span>
+              <span v-else class="display-1 red--text">BELUM LUNAS</span>
+            </v-card-text>
           </v-card>
         </v-col>
         <v-col col="12" md="7">
@@ -152,7 +201,8 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-    </v-container>
+
+    </div>
   </v-app>
 </template>
 <script>

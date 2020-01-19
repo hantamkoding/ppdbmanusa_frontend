@@ -20,7 +20,7 @@
               ></v-text-field>
 
               <v-select
-                :items="['Prestasi', 'Umum']"
+                :items="['Peminatan', 'Umum']"
                 v-model="data.jalur"
                 label="Jalur Pendaftaran"
                 :rules="[$formRules.required]"
@@ -89,6 +89,17 @@
                 </template>
                 <v-date-picker v-model="data.tgl_pengumuman" @input="menus.tgl_pengumuman = false" :min="data.tgl_start"></v-date-picker>
               </v-menu>
+
+              <v-text-field
+               label="Kode Pendaftaran"
+               v-model="data.awalan_id"
+               :rules="[$formRules.required]"
+               prefix="PPD-"
+               type="number"
+               hint="Awalan untuk no. id para pendaftar contoh : PPD-20200100xxxx"
+               required
+              ></v-text-field>
+
             
             </v-col>
             <v-col
@@ -105,16 +116,6 @@
                required
               ></v-text-field>
 
-              <v-text-field
-               label="Kode Pendaftaran"
-               v-model="data.awalan_id"
-               :rules="[$formRules.required]"
-               prefix="PPD-"
-               type="number"
-               hint="Awalan untuk no. id para pendaftar contoh : PPD-20200100xxxx"
-               required
-              ></v-text-field>
-
               <v-textarea
                label="Keterangan Lanjut / Detail Pendaftaran"
                v-model="data.keterangan"
@@ -122,8 +123,41 @@
                counter
               ></v-textarea>
 
-              
-            </v-col>
+               <v-simple-table>
+                  <template v-slot:default>
+                    <thead>
+                      <tr>
+                        <th>Berkas</th>
+                        <th>Jumlah</th>
+                        <th>#</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(item, index) in data.berkas" v-bind:key="index">
+                        <td>
+                          <v-text-field v-model="item.nama"></v-text-field>
+                        </td>
+                        <td>
+                          <v-text-field v-model="item.jumlah" type="number"></v-text-field>
+                        </td>
+                        <td>
+                          <v-btn @click="data.berkas.slice(index, 1)" color="red" small rounded outlined>
+                            <v-icon>mdi-delete</v-icon>
+                          </v-btn>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="3">
+                          <v-btn @click="data.berkas.push({nama: '', jumlah: null})" small rounded outlined>Tambah Berkas</v-btn>
+
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </template>
+                </v-simple-table>
+             </v-col>
           </v-row>
         </v-form>
       </v-card-text>
@@ -155,7 +189,8 @@
           tgl_end: this.$moment().format('YYYY-MM-DD'),
           tgl_pengumuman: this.$moment().format('YYYY-MM-DD'),
           awalan_id: this.$moment().format('mmss'),
-          keterangan: ''
+          keterangan: '',
+          berkas: []
         },
         rules: {
           name: v => v.length <= 40 || 'Nama Tidak boleh melebihi 40 karakter'

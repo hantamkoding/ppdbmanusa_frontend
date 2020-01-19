@@ -45,8 +45,8 @@
         <template v-slot:item.action="{ item }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn small rounded outlined v-on="on" :to="{name: 'PesertaPrintPendaftaran', params: {
-                id: item.id
+              <v-btn small rounded outlined v-on="on" :to="{name: 'Print', query: {
+                url: $config.api_url+ `peserta/print/no_pendaftaran/${item.id}`
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>
               </v-btn> 

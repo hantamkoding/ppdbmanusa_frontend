@@ -1,6 +1,11 @@
 <template>
   <v-app>
-    <v-card>
+    <v-skeleton-loader
+      v-if="!table.items"
+      type="card"
+    ></v-skeleton-loader>
+
+    <v-card v-else>
       <v-card-title>
         Lihat Pengumuman Peserta Pendaftaran
         <div class="flex-grow-1"></div>
@@ -33,7 +38,7 @@
             // { text: 'Tgl.Start', value: 'tgl_start' },
             { text: 'Aksi', value: 'action' },
           ],
-          items: [],
+          items: null,
         },
       }
     },

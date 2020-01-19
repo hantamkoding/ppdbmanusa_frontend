@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-card v-if="pendaftaran">
+    <v-skeleton-loader
+      v-if="!pendaftaran || !db.jurusan || !table.items"
+      type="card"
+    ></v-skeleton-loader>
+    <v-card v-else>
       <v-card-title>
         Daftar Pengumuman Peserta
         <div class="flex-grow-1"></div>
@@ -61,8 +65,8 @@
 
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
-              <v-btn small class="ml-1" rounded outlined v-on="on" :to="{name: 'PengumumanPrint', params: {
-                id: item.id
+              <v-btn small class="ml-1" rounded outlined v-on="on" :to="{name: 'Print', query: {
+                url: $config.api_url + 'pengumuman/print/' + item.id
               }}" color="primary">
                 <v-icon small>mdi-printer</v-icon>
               </v-btn> 
@@ -73,9 +77,9 @@
         </template>
 
         <template v-slot:item.pengumuman="{ item }">
-          <v-chip v-if="item.hasil == null" color="red" dark>Belum ada data</v-chip>
-          <v-chip v-else-if="item.hasil == true" color="success" dark>Diterima</v-chip>
-          <v-chip v-else-if="item.hasil == false" color="red" dark>Tidak diterima</v-chip>
+          <v-chip v-if="item.pengumuman == null" color="red" dark>Belum ada data</v-chip>
+          <v-chip v-else-if="item.pengumuman.status == true" color="success" dark>Diterima</v-chip>
+          <v-chip v-else-if="item.pengumuman.status == false" color="red" dark>Tidak diterima</v-chip>
         </template>
       </v-data-table>
     </v-card>
@@ -92,7 +96,7 @@
           jurusan: null,
         },
         db: {
-          jurusan: []
+          jurusan: null
         },
         table: {
           headers: [
@@ -103,7 +107,7 @@
             // { text: 'Tgl.Start', value: 'tgl_start' },
             { text: 'Aksi', value: 'action' },
           ],
-          items: [],
+          items: null,
         },
       }
     },

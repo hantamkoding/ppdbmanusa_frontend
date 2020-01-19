@@ -11,7 +11,7 @@
         :items="table.items"
       >
         <template v-slot:item.action="{ item }">
-          <v-btn :to="{name: 'PendaftaranEdit', params: {
+          <v-btn small :to="{name: 'PendaftaranEdit', params: {
             id: item.id
           }}" color="primary" outlined rounded>
             <v-icon small left>mdi-calendar-edit</v-icon> Edit
