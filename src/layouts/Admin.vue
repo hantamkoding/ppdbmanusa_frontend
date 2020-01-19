@@ -21,7 +21,9 @@
 
     <v-content>
       <v-container>
-        <v-btn @click="kembali" v-if="$route.name != 'Dashboard'" small outlined rounded>Kembali</v-btn>
+        <div class="mb-5">
+          <v-btn @click="kembali" v-if="$route.name != 'Dashboard'" small outlined rounded>Kembali</v-btn>
+        </div>
         <router-view></router-view>
       </v-container>
     </v-content>

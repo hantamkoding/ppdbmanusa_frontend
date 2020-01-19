@@ -75,6 +75,7 @@
      submit: function () {
       this.$axios.post('user/update_profile', this.data).then((d) => {
        this.$pesan.pesan(d.data.status, d.data.pesan);
+       this.$user.get();
       });
      }
     },

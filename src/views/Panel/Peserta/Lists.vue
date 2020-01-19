@@ -1,6 +1,10 @@
 <template>
   <v-app>
-    <v-card v-if="pendaftaran">
+    <v-skeleton-loader
+      v-if="!pendaftaran || !db.jurusan || !table.items"
+      type="card"
+    ></v-skeleton-loader>
+    <v-card v-else>
       <v-card-title>
         Daftar Peserta Pendaftaran
         <div class="flex-grow-1"></div>
@@ -92,7 +96,7 @@
           jurusan: null,
         },
         db: {
-          jurusan: []
+          jurusan: null
         },
         table: {
           headers: [
@@ -103,7 +107,7 @@
             // { text: 'Tgl.Start', value: 'tgl_start' },
             { text: 'Aksi', value: 'action' },
           ],
-          items: [],
+          items: null,
         },
       }
     },

@@ -1,4 +1,6 @@
 import User from './User'
+import Users from './Users'
+import Permissions from './Permissions'
 import Pendaftaran from './Pendaftaran'
 import Peserta from './Peserta'
 import Pengumuman from './Pengumuman'
@@ -40,6 +42,8 @@ export default {
         }
       },
       ...User,
+      ...Users,
+      ...Permissions,
       ...Pendaftaran,
       ...Peserta,
       ...Pengumuman,

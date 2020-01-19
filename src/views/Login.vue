@@ -10,7 +10,6 @@
 							<v-text-field
 								prepend-icon="mdi-account"
 								v-model="data.username"
-								:counter="10"
 								:rules="rules.username"
 								required
 							></v-text-field>
@@ -19,7 +18,6 @@
 								:append-icon="data.showPwd ? 'mdi-eye' : 'mdi-eye-off'"
 								@click:append="data.showPwd ? data.showPwd = false : data.showPwd = true"
 								v-model="data.password"
-								:counter="5"
 								:type="!data.showPwd ? 'password' : 'text'"
 								:rules="rules.password"
 								required
@@ -51,11 +49,11 @@
 				rules: {
 					username: [
 						v => !!v || 'Username wajib diisi',
-						v => v.length <= 10 || 'Username maksimal 10 karakter'
+						// v => v.length <= 10 || 'Username maksimal 10 karakter'
 					],
 					password: [
 						v => !!v || 'Password wajib di isi',
-						v => v.length >= 5 || 'Password minimal 6 karakter'
+						// v => v.length >= 5 || 'Password minimal 6 karakter'
 					]
 
 				}

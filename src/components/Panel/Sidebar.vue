@@ -22,28 +22,28 @@
         </template>
         <v-list>
 
-          <v-list-item :to="{ name: 'userPhoto' }" replace link>
+          <v-list-item :to="{ name: 'userPhoto' }"  link>
             <v-list-item-action>
               <v-icon>mdi-account-edit-outline</v-icon>
             </v-list-item-action>
             <v-list-item-content>Ubah Foto</v-list-item-content>
           </v-list-item>
 
-          <v-list-item :to="{ name: 'userEdit' }" replace link>
+          <v-list-item :to="{ name: 'userEdit' }"  link>
             <v-list-item-action>
               <v-icon>mdi-account-edit-outline</v-icon>
             </v-list-item-action>
             <v-list-item-content>Ubah Profile</v-list-item-content>
           </v-list-item>
 
-          <v-list-item :to="{ name: 'userPassword' }" replace link>
+          <v-list-item :to="{ name: 'userPassword' }"  link>
             <v-list-item-action>
               <v-icon>mdi-lock</v-icon>
             </v-list-item-action>
             <v-list-item-content>Ubah Password</v-list-item-content>
           </v-list-item>
 
-          <v-list-item @click="$auth.logout()" replace link>
+          <v-list-item @click="$auth.logout()"  link>
             <v-list-item-action>
               <v-icon>mdi-logout-variant</v-icon>
             </v-list-item-action>
@@ -57,7 +57,7 @@
     <v-list shaped>
       <v-list-item-group v-model="active" color="primary">
 
-        <v-list-item :to="{name: 'Dashboard'}" replace>
+        <v-list-item :to="{name: 'Dashboard'}" >
           <v-list-item-action>
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
@@ -66,7 +66,25 @@
           </v-list-item-content>
         </v-list-item>
 
-<!--         <v-list-item :to="{name: 'Pendaftaran'}" replace>
+        <v-list-item v-if="$roles.has('root')" :to="{name: 'Users'}" >
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              User
+          </v-list-item-content>
+        </v-list-item>
+
+<!--         <v-list-item :to="{name: 'Permissions'}" >
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Perijinan
+          </v-list-item-content>
+        </v-list-item> -->
+
+        <v-list-item v-if="$roles.has('root')" :to="{name: 'Pendaftaran'}" >
           <v-list-item-action>
             <v-icon>mdi-clipboard-account-outline</v-icon>
           </v-list-item-action>
@@ -74,8 +92,8 @@
               Pendaftaran
           </v-list-item-content>
         </v-list-item>
- -->
-        <v-list-item :to="{name: 'PesertaListsPendaftaran'}" replace>
+
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'PesertaListsPendaftaran'}" >
           <v-list-item-action>
             <v-icon>mdi-account</v-icon>
           </v-list-item-action>
@@ -84,7 +102,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'NilaiListsPendaftaran'}" replace>
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'NilaiListsPendaftaran'}" >
           <v-list-item-action>
             <v-icon>mdi-source-fork</v-icon>
           </v-list-item-action>
@@ -93,7 +111,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'PengumumanListsPendaftaran'}" replace>
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'PengumumanListsPendaftaran'}" >
           <v-list-item-action>
             <v-icon>mdi-clipboard-check-outline</v-icon>
           </v-list-item-action>
@@ -102,7 +120,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'RincianDaftarUlangLists'}" replace>
+        <v-list-item v-if="$roles.has('root')" :to="{name: 'RincianDaftarUlangLists'}" >
           <v-list-item-action>
             <v-icon>mdi-clipboard-list-outline</v-icon>
           </v-list-item-action>
@@ -111,7 +129,7 @@
           </v-list-item-content>
         </v-list-item>
 
-        <v-list-item :to="{name: 'PembayaranDaftarUlang'}" replace>
+        <v-list-item v-if="$roles.has('du')" :to="{name: 'PembayaranDaftarUlang'}" >
           <v-list-item-action>
             <v-icon>mdi-account-cash-outline</v-icon>
           </v-list-item-action>

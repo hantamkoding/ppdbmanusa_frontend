@@ -40,6 +40,9 @@ _axios.interceptors.response.use(
   function(error) {
     _toast.app_error(error);
     window.console.log(error.response);
+    if (error.response.status == 401) {
+      _auth.logout();
+    }
     return Promise.reject(error);
   }
 );
