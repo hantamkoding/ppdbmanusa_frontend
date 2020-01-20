@@ -238,12 +238,9 @@
           window.console.log(d);
             this.$pesan.pesan(d.data.status, d.data.pesan);
             if (d.data.status) {
-              this.$router.replace({
-                name: 'PesertaPrintPendaftaran',
-                params: {
-                  id: d.data.data.id
-                }
-              });
+              this.$router.replace({name: 'Print', query: {
+                url: this.$config.api_url+ `peserta/print/no_pendaftaran/${d.data.data.id}`
+              }});
             }
          })
       }

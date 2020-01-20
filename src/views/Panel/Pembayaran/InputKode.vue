@@ -34,11 +34,7 @@
     },
     methods: {
       submit: function () {
-        this.axios.get('peserta/get/', {
-          params: {
-            no_id: this.no_id
-          }
-        }).then((d) => {
+        this.axios.get('peserta/get/'+this.no_id).then((d) => {
           window.console.log(d.data);
           this.$pesan.pesan(d.data.status, d.data.pesan);
           if (d.data.status) {

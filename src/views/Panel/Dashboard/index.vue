@@ -32,9 +32,10 @@
       </v-row>
       <v-row>
         <v-col
+          v-for="(item, index) in fast_buttons" v-bind:key="index"
           md="3"        
         >
-          <v-card  v-for="(item, index) in fast_buttons" v-bind:key="index" :color="item.color" :to="{name: item.to }" replace dark>
+          <v-card  :color="item.color" :to="{name: item.to }" replace dark v-if="$roles.has(item.role)">
             <v-card-title>
               <v-icon left>{{ item.icon }}</v-icon>
               <span class="title font-weight-light">{{ item.title }}</span>
@@ -54,11 +55,20 @@
       return {
         fast_buttons: [
           {
+            role: 'ppdb',
             to: 'PesertaListsPendaftaran',
             color: 'blue-grey lighten-2',
             icon: 'mdi-account-group',
             title: 'Peserta',
             pesan: 'Tambah, Kelola Peserta Pendaftaran'
+          },
+          {
+            role: 'ppdb',
+            to: 'PembayaranDaftarUlang',
+            color: 'indigo lighten-1',
+            icon: 'mdi-account-cash-outline',
+            title: 'Pembayaran',
+            pesan: 'Kelola Pembayaran Daftar Ulang'
           }
         ]
       }
