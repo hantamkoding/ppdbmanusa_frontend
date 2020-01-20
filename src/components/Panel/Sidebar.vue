@@ -120,6 +120,15 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'ReportsPendaftaran'}" >
+          <v-list-item-action>
+            <v-icon>mdi-chart-bar</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Informasi PPDB
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item v-if="$roles.has('root')" :to="{name: 'RincianDaftarUlangLists'}" >
           <v-list-item-action>
             <v-icon>mdi-clipboard-list-outline</v-icon>

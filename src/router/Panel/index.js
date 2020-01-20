@@ -5,6 +5,7 @@ import Pendaftaran from './Pendaftaran'
 import Peserta from './Peserta'
 import Pengumuman from './Pengumuman'
 import Nilai from './Nilai'
+import Reports from './Reports'
 import Du from './Du'
 import _auth from '@/plugins/auth'
 export default {
@@ -48,6 +49,7 @@ export default {
       ...Peserta,
       ...Pengumuman,
       ...Nilai,
+      ...Reports,
       ...Du,
     ]
 }
