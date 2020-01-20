@@ -157,11 +157,12 @@
       <v-dialog
         v-model="dialogs.add"
         transition="scale-transition"
+        max-width="500"
       >
         <v-card>
           <v-card-title>Tambah Transaksi Pembayaran</v-card-title>
           <v-card-text>
-            <v-form v-model="pembayaran.valid">
+            <v-form @submit="submit" v-model="pembayaran.valid">
               <v-text-field
               label="No.Pendaftaran"
               :value="data.peserta.no_pendaftaran"
@@ -195,7 +196,7 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-btn @click="submit" color="success" rounded :disabled="!pembayaran.valid">
+            <v-btn small @click="submit" color="success" rounded :disabled="!pembayaran.valid">
               <v-icon left>mdi-check</v-icon> Tambah Transaksi Pembayaran
             </v-btn>
           </v-card-actions>

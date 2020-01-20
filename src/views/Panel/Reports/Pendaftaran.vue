@@ -20,7 +20,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th v-for="(jur) in item.jurusan" v-bind:key="jur">{{ jur }}</th>
+                      <th v-for="(jur, i) in item.jurusan" v-bind:key="i">{{ jur }}</th>
                       <th>Total</th>
                     </tr>
                   </thead>
@@ -29,8 +29,8 @@
                       <th nowrap="nowrap">
                         Pilihan Jurusan Ke 1
                       </th>
-                      <td class="text-center" v-for="(jur) in item.pilihan_1" v-bind:key="jur">{{ jur }}</td>
-                      <td class="text-center">{{ item.pilihan_1.reduce((total, jur) => {
+                      <td class="text-center" v-for="(jur, i) in item.pilihan_1" v-bind:key="i">{{ jur }}</td>
+                      <td class="text-center font-weight-black">{{ item.pilihan_1.reduce((total, jur) => {
                         return total + jur;
                       }) }}</td>
                     </tr>
@@ -38,8 +38,8 @@
                       <th nowrap="nowrap">
                         Pilihan Jurusan Ke 2
                       </th>
-                      <td class="text-center" v-for="(jur) in item.pilihan_2" v-bind:key="jur">{{ jur }}</td>
-                      <td class="text-center">{{ item.pilihan_2.reduce((total, jur) => {
+                      <td class="text-center" v-for="(jur, i) in item.pilihan_2" v-bind:key="i">{{ jur }}</td>
+                      <td class="text-center font-weight-black">{{ item.pilihan_2.reduce((total, jur) => {
                         return total + jur;
                       }) }}</td>
 
@@ -65,7 +65,7 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th v-for="(jur) in item.jurusan" v-bind:key="jur">{{ jur }}</th>
+                      <th v-for="(jur, i) in item.jurusan" v-bind:key="i">{{ jur }}</th>
                       <th>Total</th>
                     </tr>
                   </thead>
@@ -74,8 +74,8 @@
                       <th nowrap="nowrap">
                         Diterima
                       </th>
-                      <td class="text-center" v-for="(jur) in item.diterima" v-bind:key="jur">{{ jur }}</td>
-                      <td class="text-center">{{ item.diterima.reduce((total, jur) => {
+                      <td class="text-center" v-for="(jur,i) in item.diterima" v-bind:key="i">{{ jur }}</td>
+                      <td class="text-center font-weight-black">{{ item.diterima.reduce((total, jur) => {
                         return total + jur;
                       }) }}</td>
                     </tr>
@@ -83,8 +83,8 @@
                       <th nowrap="nowrap">
                         Tidak Diterima / Belum ada data
                       </th>
-                      <td class="text-center" v-for="(jur) in item.tidak_diterima" v-bind:key="jur">{{ jur }}</td>
-                      <td class="text-center text-weight-bold">{{ item.tidak_diterima.reduce((total, jur) => {
+                      <td class="text-center" v-for="(jur,i) in item.tidak_diterima" v-bind:key="i">{{ jur }}</td>
+                      <td class="text-center font-weight-black">{{ item.tidak_diterima.reduce((total, jur) => {
                         return total + jur;
                       }) }}</td>
 

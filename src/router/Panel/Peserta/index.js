@@ -67,6 +67,15 @@ export default [
           title: 'Pindah Jurusan'
         }
       },
+ 
+      {
+        path: 'riwayat',
+        name: 'RiwayatRegister',
+        component: () => import('@/views/Panel/Peserta/PindahJurusan'),
+        meta: {
+          title: 'Riwayat Pendaftaran Peserta'
+        }
+      },
     ]
   }
 ]

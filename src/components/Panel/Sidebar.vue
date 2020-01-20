@@ -147,6 +147,15 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item v-if="$roles.has('du')" :to="{name: 'ReportsDaftarUlang'}" >
+          <v-list-item-action>
+            <v-icon>mdi-chart-bar</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Informasi Daftar Ulang
+          </v-list-item-content>
+        </v-list-item>
+
       </v-list-item-group>
     </v-list>
   </v-app>

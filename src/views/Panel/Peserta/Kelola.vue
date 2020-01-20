@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-form
+      @submit="submit"
       v-model="valid"
     >
       <v-card-title>

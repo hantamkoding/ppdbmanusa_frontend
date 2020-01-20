@@ -7,7 +7,7 @@
             Masukan No.Pendftaran Peserta
           </v-card-title>
           <v-card-text>
-            <v-form v-model="valid">
+            <v-form @submit="submit" v-model="valid">
               <v-text-field
               v-model="no_id"
               label="No. Pendaftaran"
@@ -17,7 +17,7 @@
             </v-form>
           </v-card-text>
           <v-card-actions>
-            <v-btn @click="submit" :disabled="!valid" rounded color="success">Cek No.Pendaftaran</v-btn>
+            <v-btn @click="submit" :disabled="!valid" small rounded color="success">Cek No.Pendaftaran</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
