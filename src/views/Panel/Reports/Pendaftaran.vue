@@ -11,7 +11,7 @@
             <v-card>
               <v-card-title>{{ item.nama }}</v-card-title>
               <v-card-subtitle>Jurusan Pendaftaran</v-card-subtitle>
-              <v-card-text style="min-height: 300px">
+              <v-card-text style="height: 350px">
                 <v-chart autoresize :options="item.chart_pendaftaran"/>
               </v-card-text>
 
@@ -56,7 +56,7 @@
             <v-card>
               <v-card-title>{{ item.nama }}</v-card-title>
               <v-card-subtitle>Peserta Diterima</v-card-subtitle>
-              <v-card-text style="min-height: 300px">
+              <v-card-text style="height: 350px">
                 <v-chart autoresize :options="item.chart_pengumuman"/>
               </v-card-text>
 
@@ -109,6 +109,7 @@
  */
 .echarts {
   width: 100%;
+  height: 100%;
 }
 </style>
 <script>

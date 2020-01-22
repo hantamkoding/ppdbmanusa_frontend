@@ -100,12 +100,12 @@
         },
         table: {
           headers: [
-            { text: 'No. Pendaftaran', value: 'no_pendaftaran' },
-            { text: 'Nama', value: 'nama' },
+            { text: 'No. Pendaftaran', value: 'no_pendaftaran', width: '200' },
+            { text: 'Nama', value: 'nama', width: '200' },
             { text: 'Jurusan', value: 'jurusan_1' },
-            { text: 'Tgl. & Waktu Daftar', value: 'tgl_daftar' },
+            { text: 'Tgl. & Waktu Daftar', value: 'tgl_daftar', width: '200' },
             // { text: 'Tgl.Start', value: 'tgl_start' },
-            { text: 'Aksi', value: 'action' },
+            { text: 'Aksi', value: 'action', width: '200' },
           ],
           items: null,
         },

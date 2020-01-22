@@ -79,10 +79,10 @@
         },
         table: {
           headers: [
-            { text: 'No. Pendaftaran', value: 'no_pendaftaran' },
-            { text: 'Nama', value: 'nama' },
+            { text: 'No. Pendaftaran', value: 'no_pendaftaran', width: '200' },
+            { text: 'Nama', value: 'nama', width: '200' },
             { text: 'Jurusan', value: 'jurusan_1' },
-            { text: 'Tgl. & Waktu Daftar', value: 'tgl_daftar' },
+            { text: 'Tgl. & Waktu Daftar', value: 'tgl_daftar', width: '200' },
             // { text: 'Tgl.Start', value: 'tgl_start' },
             { text: 'Aksi', value: 'action' },
           ],
@@ -96,7 +96,7 @@
         return this.table.items.filter(function (item) {
           return item.jurusan_1 == vm.filter.jurusan;
         });
-      }
+      },
     },
     methods: {
       getPendaftaran: function () {

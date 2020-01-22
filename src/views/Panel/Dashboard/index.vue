@@ -2,25 +2,25 @@
   <v-app> 
     <v-container fluid>
       <v-row>
-        <v-col
-          v-for="(item, index) in fast_buttons" v-bind:key="index"
-          cols="12"
-          md="3"        
-        >
-          <v-card  :color="item.color" :to="{name: item.to }" replace dark v-if="$roles.has(item.role)">
-            <v-card-title>
-              <v-icon left>{{ item.icon }}</v-icon>
-              <span class="title font-weight-light">{{ item.title }}</span>
-            </v-card-title>
-            <v-card-subtitle>
-                {{ item.pesan }}
-            </v-card-subtitle>
-          </v-card>
-        </v-col>
+          <v-col
+            v-for="(item, index) in fast_buttons" v-bind:key="index"
+            cols="12"
+            md="3"
+          >
+            <v-card  :color="item.color" :to="{name: item.to }" replace dark>
+              <v-card-title>
+                <v-icon left>{{ item.icon }}</v-icon>
+                <span class="title font-weight-light">{{ item.title }}</span>
+              </v-card-title>
+              <v-card-subtitle>
+                  {{ item.pesan }}
+              </v-card-subtitle>
+            </v-card>
+          </v-col>
       </v-row>
       <v-row>
         <v-col
-          md="5"
+          md="6"
           cols="12"
         >
           <v-card color="blue-grey darken-1" dark>
@@ -54,24 +54,35 @@
   export default {
     data () {
       return {
-        fast_buttons: [
-          {
+        
+      }
+    },
+    computed: {
+      fast_buttons: function () {
+        let data = [];
+        if (this.$roles.has('ppdb')) {
+          data.push({
             role: 'ppdb',
             to: 'PesertaListsPendaftaran',
             color: 'blue-grey lighten-2',
             icon: 'mdi-account-group',
             title: 'Peserta',
             pesan: 'Tambah, Kelola Peserta Pendaftaran'
-          },
-          {
-            role: 'ppdb',
+          });
+        }  
+
+        if (this.$roles.has('du')) {
+          data.push({
+            role: 'du',
             to: 'PembayaranDaftarUlang',
             color: 'indigo lighten-1',
             icon: 'mdi-account-cash-outline',
             title: 'Pembayaran',
             pesan: 'Kelola Pembayaran Daftar Ulang'
-          }
-        ]
+          });
+        }
+
+        return data; 
       }
     }
   }

@@ -24,4 +24,4 @@ const MyPlugin = {
 
 Vue.use(MyPlugin)
 
-export default _roles;
+export  { _roles };

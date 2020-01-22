@@ -6,7 +6,7 @@
 					<v-card-title>{{ $config.school }}</v-card-title>
 					<v-card-text>
 						Masukan data pengguna untuk masuk
-						<v-form v-model="valid">
+						<v-form v-model="valid" @submit="submit">
 							<v-text-field
 								prepend-icon="mdi-account"
 								v-model="data.username"

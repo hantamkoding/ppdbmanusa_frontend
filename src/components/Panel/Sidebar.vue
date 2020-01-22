@@ -120,6 +120,15 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'RiwayatPendaftaran'}" >
+          <v-list-item-action>
+            <v-icon>mdi-history</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Riwayat Pendaftaran
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'ReportsPendaftaran'}" >
           <v-list-item-action>
             <v-icon>mdi-chart-bar</v-icon>
@@ -144,6 +153,15 @@
           </v-list-item-action>
           <v-list-item-content>
               Pembayaran Daftar Ulang
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item v-if="$roles.has('du')" :to="{name: 'RiwayatPembayaran'}" >
+          <v-list-item-action>
+            <v-icon>mdi-history</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Riwayat Pembayaran
           </v-list-item-content>
         </v-list-item>
 

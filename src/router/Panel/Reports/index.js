@@ -20,5 +20,27 @@ export default [
         }
       },
     ]
+  },
+  {
+    path: 'riwayat',
+    component: () => import('@/layouts/BlankRouter'),
+    children: [
+      {
+        path: 'pendaftaran',
+        name: 'RiwayatPendaftaran',
+        component: () => import('@/views/Panel/Reports/RiwayatPendaftaran'),
+        meta: {
+          title: 'Riwayat Pendaftaran Peserta'
+        }
+      },
+      {
+        path: 'pembayaran',
+        name: 'RiwayatPembayaran',
+        component: () => import('@/views/Panel/Reports/RiwayatPembayaran'),
+        meta: {
+          title: 'Riwayat Pembayaran Daftar Ulang'
+        }
+      },
+    ]
   }
 ]

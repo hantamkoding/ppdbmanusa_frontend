@@ -1,7 +1,20 @@
+import { _roles } from '@/plugins/permissions'
 export default [
   {
     path: 'rincian_du',
     component: () => import('@/layouts/BlankRouter'),
+
+    beforeEnter: (to, from, next) => {
+      if (_roles.has('root')) {
+        next(true);
+      }  else {
+        next({
+          replace: true,
+          name: 'Dashboard'
+        })
+      }
+    },
+
     children: [
       {
         path: 'list',
@@ -9,7 +22,7 @@ export default [
         component: () => import('@/views/Panel/DaftarUlang'),
         meta: {
           title: 'Daftar Biaya / rincian daftar ulang'
-        }
+        },
       },
       {
         path: 'add',
@@ -32,6 +45,17 @@ export default [
   {
     path: 'pembayaran_du',
     component: () => import('@/layouts/BlankRouter'),
+
+    beforeEnter: (to, from, next) => {
+      if (_roles.has('du')) {
+        next(true);
+      }  else {
+        next({
+          replace: true,
+          name: 'Dashboard'
+        })
+      }
+    },
     children: [
       {
         path: '/',

@@ -1,7 +1,19 @@
+import { _roles } from '@/plugins/permissions'
 export default [
   {
     path: 'peserta',
     component: () => import('@/layouts/BlankRouter'),
+    beforeEnter: (to, from, next) => {
+      if (_roles.has('ppdb')) {
+        next(true);
+      }  else {
+        next({
+          replace: true,
+          name: 'Dashboard'
+        })
+      }
+    },
+
     children: [
       {
         path: '/',
