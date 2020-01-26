@@ -7,7 +7,7 @@
             cols="12"
             md="3"
           >
-            <v-card  :color="item.color" :to="{name: item.to }" replace dark>
+            <v-card  :color="item.color" :to="{name: item.to }" dark>
               <v-card-title>
                 <v-icon left>{{ item.icon }}</v-icon>
                 <span class="title font-weight-light">{{ item.title }}</span>
@@ -79,6 +79,72 @@
             icon: 'mdi-account-cash-outline',
             title: 'Pembayaran',
             pesan: 'Kelola Pembayaran Daftar Ulang'
+          });
+        }
+        
+        if (this.$roles.has('ppdb')) {
+          data.push({
+            role: 'ppdb',
+            to: 'ReportsPendaftaran',
+            color: 'blue lighten-1',
+            icon: 'mdi-chart-bar',
+            title: 'Informasi PPDB',
+            pesan: 'Lihat Informasi Akhir Pendaftaran'
+          });
+        }
+
+        if (this.$roles.has('du')) {
+          data.push({
+            role: 'du',
+            to: 'ReportsDaftarUlang',
+            color: 'green lighten-1',
+            icon: 'mdi-chart-bar',
+            title: 'Informasi DU',
+            pesan: 'Lihat Informasi Akhir Daftar Ulang'
+          });
+        }
+
+        if (this.$roles.has('ppdb')) {
+          data.push({
+            role: 'ppdb',
+            to: 'RiwayatPendaftaran',
+            color: 'deep-purple lighten-1',
+            icon: 'mdi-timeline-text-outline',
+            title: 'Riwayat PPDB',
+            pesan: 'Lihat Riwayat Pendaftaran Peserta'
+          });
+        }
+
+        if (this.$roles.has('du')) {
+          data.push({
+            role: 'du',
+            to: 'RiwayatPembayaran',
+            color: 'teal lighten-1',
+            icon: 'mdi-timeline-text-outline',
+            title: 'Riwayat DU',
+            pesan: 'Lihat Riwayat Pembayaran Daftar Ulang'
+          });
+        }
+
+        if (this.$roles.has('ppdb')) {
+          data.push({
+            role: 'ppdb',
+            to: 'ExportPendaftaran',
+            color: 'deep-purple lighten-1',
+            icon: 'mdi-cloud-download',
+            title: 'Export Data PPDB',
+            pesan: 'Download Database Peserta PPDB'
+          });
+        }
+
+        if (this.$roles.has('du')) {
+          data.push({
+            role: 'du',
+            to: 'ExportPembayaran',
+            color: 'teal lighten-1',
+            icon: 'mdi-cloud-download',
+            title: 'Export Data DU',
+            pesan: 'Download Database Daftar Ulang'
           });
         }
 

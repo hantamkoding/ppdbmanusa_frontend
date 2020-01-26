@@ -47,7 +47,58 @@
                   </tbody>
                 </template>
               </v-simple-table>
-              
+              <v-card-subtitle>Jenis Kelamin</v-card-subtitle>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="6">
+
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <tbody>
+                          <tr>
+                            <td class="font-weight-bold">Laki - Laki</td>
+                            <td>{{ item.jenis_kelamin.laki_laki }}</td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-bold">Perempuan</td>
+                            <td>{{ item.jenis_kelamin.perempuan }}</td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+
+                  </v-col>
+                  <v-col cols="12" md="6" style="height: 200px">
+                    <v-chart autoresize :options="item.chart_jenis_kelamin"/>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+
+              <v-card-subtitle>Asal Sekolah</v-card-subtitle>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="6" style="height: 200px">
+                    <v-chart autoresize :options="item.chart_asal_sekolah"/>
+                  </v-col>
+                  <v-col cols="12" md="6">
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <tbody>
+                          <tr>
+                            <td class="font-weight-bold">Negri</td>
+                            <td>{{ item.asal_sekolah.negri }}</td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-bold">Swasta</td>
+                            <td>{{ item.asal_sekolah.swasta }}</td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+
+                  </v-col>
+                </v-row>
+              </v-card-text>
             </v-card>
 
           </v-col>
@@ -92,7 +143,58 @@
                   </tbody>
                 </template>
               </v-simple-table>
+              <v-card-subtitle>Jenis Kelamin</v-card-subtitle>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="6">
 
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <tbody>
+                          <tr>
+                            <td class="font-weight-bold">Laki - Laki</td>
+                            <td>{{ item.jenis_kelamin_diterima.laki_laki }}</td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-bold">Perempuan</td>
+                            <td>{{ item.jenis_kelamin_diterima.perempuan }}</td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+
+                  </v-col>
+                  <v-col cols="12" md="6" style="height: 200px">
+                    <v-chart autoresize :options="item.chart_jenis_kelamin_diterima"/>
+                  </v-col>
+                </v-row>
+              </v-card-text>
+
+              <v-card-subtitle>Asal Sekolah</v-card-subtitle>
+              <v-card-text>
+                <v-row>
+                  <v-col cols="12" md="6" style="height: 200px">
+                    <v-chart autoresize :options="item.chart_asal_sekolah_diterima"/>
+                  </v-col>
+                  <v-col cols="12" md="6">
+                    <v-simple-table>
+                      <template v-slot:default>
+                        <tbody>
+                          <tr>
+                            <td class="font-weight-bold">Negri</td>
+                            <td>{{ item.asal_sekolah_diterima.negri }}</td>
+                          </tr>
+                          <tr>
+                            <td class="font-weight-bold">Swasta</td>
+                            <td>{{ item.asal_sekolah_diterima.swasta }}</td>
+                          </tr>
+                        </tbody>
+                      </template>
+                    </v-simple-table>
+
+                  </v-col>
+                </v-row>
+              </v-card-text>
             </v-card>
 
           </v-col>
@@ -115,6 +217,7 @@
 <script>
   import ECharts from 'vue-echarts'
   import 'echarts/lib/chart/bar'
+  import 'echarts/lib/chart/pie'
   import 'echarts/lib/component/tooltip'
   import 'echarts/lib/component/legend'
   export  default {
@@ -159,7 +262,49 @@
             };
 
             // end of chart pendaftaram
+            
+            this.data[index].chart_jenis_kelamin = {
+              legend: {},
+              tooltip: {},
+              series: [
+                  {
+                      type: 'pie',
+                      data: [
+                          {value: item.jenis_kelamin.perempuan, name: 'Perempuan'},
+                          {value: item.jenis_kelamin.laki_laki, name: 'Laki - Laki'},
+                      ],
 
+                      animationType: 'scale',
+                      animationEasing: 'elasticOut',
+                      animationDelay: function () {
+                          return Math.random() * 200;
+                      }
+                  }
+              ],
+              animationDuration: 2000
+            };
+
+            this.data[index].chart_asal_sekolah = {
+              legend: {},
+              tooltip: {},
+              series: [
+                  {
+                      type: 'pie',
+                      data: [
+                          {value: item.asal_sekolah.swasta, name: 'Negri'},
+                          {value: item.asal_sekolah.negri, name: 'Swasta'},
+                      ],
+
+                      animationType: 'scale',
+                      animationEasing: 'elasticOut',
+                      animationDelay: function () {
+                          return Math.random() * 200;
+                      }
+                  }
+              ],
+              animationDuration: 2000
+            };
+         
             // start of chart pengumuman
 
             this.data[index].chart_pengumuman = {
@@ -183,6 +328,49 @@
               }],
               animationDuration: 2000
             };
+          
+            this.data[index].chart_jenis_kelamin_diterima = {
+              legend: {},
+              tooltip: {},
+              series: [
+                  {
+                      type: 'pie',
+                      data: [
+                          {value: item.jenis_kelamin_diterima.perempuan, name: 'Perempuan'},
+                          {value: item.jenis_kelamin_diterima.laki_laki, name: 'Laki - Laki'},
+                      ],
+
+                      animationType: 'scale',
+                      animationEasing: 'elasticOut',
+                      animationDelay: function () {
+                          return Math.random() * 200;
+                      }
+                  }
+              ],
+              animationDuration: 2000
+            };
+
+            this.data[index].chart_asal_sekolah_diterima = {
+              legend: {},
+              tooltip: {},
+              series: [
+                  {
+                      type: 'pie',
+                      data: [
+                          {value: item.asal_sekolah_diterima.swasta, name: 'Negri'},
+                          {value: item.asal_sekolah_diterima.negri, name: 'Swasta'},
+                      ],
+
+                      animationType: 'scale',
+                      animationEasing: 'elasticOut',
+                      animationDelay: function () {
+                          return Math.random() * 200;
+                      }
+                  }
+              ],
+              animationDuration: 2000
+            };
+
           });
         })
       }

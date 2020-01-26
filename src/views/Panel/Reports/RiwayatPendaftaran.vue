@@ -22,7 +22,7 @@
               <template v-slot:activator="{ on }">
                 <v-text-field
                   v-model="data.tgl"
-                  label="Tanggal Lahir"
+                  label="Tanggal"
                   :rules="[$formRules.required]"
                   append-icon="mdi-calendar"
                   readonly

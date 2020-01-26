@@ -122,7 +122,7 @@
 
         <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'RiwayatPendaftaran'}" >
           <v-list-item-action>
-            <v-icon>mdi-history</v-icon>
+            <v-icon>mdi-timeline-text-outline</v-icon>
           </v-list-item-action>
           <v-list-item-content>
               Riwayat Pendaftaran
@@ -135,6 +135,15 @@
           </v-list-item-action>
           <v-list-item-content>
               Informasi PPDB
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item v-if="$roles.has('ppdb')" :to="{name: 'ExportPendaftaran'}" >
+          <v-list-item-action>
+            <v-icon>mdi-cloud-download</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Download Data PPDB
           </v-list-item-content>
         </v-list-item>
 
@@ -158,7 +167,7 @@
 
         <v-list-item v-if="$roles.has('du')" :to="{name: 'RiwayatPembayaran'}" >
           <v-list-item-action>
-            <v-icon>mdi-history</v-icon>
+            <v-icon>mdi-timeline-text-outline</v-icon>
           </v-list-item-action>
           <v-list-item-content>
               Riwayat Pembayaran
@@ -173,6 +182,16 @@
               Informasi Daftar Ulang
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item v-if="$roles.has('du')" :to="{name: 'ExportPembayaran'}" >
+          <v-list-item-action>
+            <v-icon>mdi-cloud-download</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+              Download Data Daftar Ulang
+          </v-list-item-content>
+        </v-list-item>
+
 
       </v-list-item-group>
     </v-list>

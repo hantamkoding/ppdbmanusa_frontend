@@ -42,5 +42,27 @@ export default [
         }
       },
     ]
+  },
+  {
+    path: 'export',
+    component: () => import('@/layouts/BlankRouter'),
+    children: [
+      {
+        path: 'pendaftaran',
+        name: 'ExportPendaftaran',
+        component: () => import('@/views/Panel/Reports/ExportPendaftaran'),
+        meta: {
+          title: 'Export  / Download Data Pendaftaran'
+        }
+      },
+      {
+        path: 'pembayaran',
+        name: 'ExportPembayaran',
+        component: () => import('@/views/Panel/Reports/ExportPembayaran'),
+        meta: {
+          title: 'Export  / Download Data Pembayaran'
+        }
+      },
+    ]
   }
 ]

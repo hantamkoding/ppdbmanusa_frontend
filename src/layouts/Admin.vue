@@ -4,6 +4,7 @@
       app
       color="green lighten-1"
       dark
+      dense
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>
@@ -15,6 +16,7 @@
     <v-navigation-drawer
       v-model="drawer"
       app
+      width="300"
     >
       <sidebar/>
     </v-navigation-drawer>

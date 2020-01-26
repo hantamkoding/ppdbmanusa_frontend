@@ -20,7 +20,7 @@
             <v-icon small left>mdi-account-group</v-icon> Lihat
           </v-btn>  
 
-          <v-btn small :to="{name: 'PesertaRegister', params: {
+          <v-btn class="mr-1" small :to="{name: 'PesertaRegister', params: {
             pendaftaran_id: item.id
           }}" color="success" outlined rounded>
             <v-icon small left>mdi-account-plus-outline</v-icon> Tambah 

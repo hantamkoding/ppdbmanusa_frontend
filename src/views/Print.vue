@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <div v-if="is_mobile">
+    <div v-if="$store.state.is_mobile">
       <v-btn color="success" rounded outlined :href="url"><v-icon left>mdi-cloud-download-outline</v-icon> Download Dokumen</v-btn>
     </div>
     <div v-else>
@@ -19,16 +19,11 @@
     data() {
       return {
         url: this.$route.query.url,
-        is_mobile: true,
       }
     },
     methods: {
     },
     mounted () {
-      window.window.console.log(typeof cordova);
-      if (window.cordova && window.cordova.platformId !== "browser") {
-        this.is_mobile = true;
-      }
     }
   }
 </script>

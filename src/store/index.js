@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    is_mobile: ((window.cordova && window.cordova.platformId !== "browser") || window.innerWidth < 600),
   },
   mutations: {
   },

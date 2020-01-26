@@ -1,7 +1,7 @@
 {
   "name": "id.my.hantamkoding.ppdb.manusa",
   "displayName": "PPDB MANUSA (Panitia)",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Aplikasi Panitia PPDB SMK Ma'arif NU 1 Ajibarang",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "dependencies": {
     "cordova-android": "^8.1.0",
     "cordova-plugin-document-viewer": "git+https://github.com/sitewaerts/cordova-plugin-document-viewer.git",
-    "cordova-plugin-secure-storage": "^3.0.2"
+    "cordova-plugin-secure-storage": "^3.0.2",
+    "cordova-plugin-statusbar": "^2.4.3"
   },
   "devDependencies": {
     "cordova-plugin-whitelist": "^1.3.4"
@@ -24,7 +25,8 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-secure-storage": {},
-      "cordova-plugin-document-viewer": {}
+      "cordova-plugin-document-viewer": {},
+      "cordova-plugin-statusbar": {}
     },
     "platforms": [
       "android"

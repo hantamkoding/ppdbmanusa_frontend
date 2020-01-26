@@ -112,31 +112,27 @@
             <v-card>
               <v-card-title>{{ item.nama }}</v-card-title>
               <v-card-subtitle>Daftar Rincian Total Peneriman Uang daftar ulang setiap panitia</v-card-subtitle>
-
-              <v-card-text>
-                <v-timeline dense>
-                  <v-slide-x-reverse-transition
-                    group
-                    hide-on-leave
-                  >
-                    <v-timeline-item
-                      v-for="(terima, i) in item.rincian_penerimaan"
-                      :key="i"
-                      small
-                      fill-dot
-                    >
-                      <v-card>
-                        <v-card-text>
-                          <div><span class="title">{{ terima.total | currency }}</span></div>
-                          <div>{{ terima.user.name }}</div>
-                        </v-card-text>
-                      </v-card>
-                    </v-timeline-item>
-                  </v-slide-x-reverse-transition>
-                </v-timeline>
-
-              </v-card-text>
             </v-card>
+            <v-timeline dense>
+                <v-slide-x-reverse-transition
+                  group
+                  hide-on-leave
+                >
+                  <v-timeline-item
+                    v-for="(terima, i) in item.rincian_penerimaan"
+                    :key="i"
+                    small
+                    fill-dot
+                  >
+                    <v-card>
+                      <v-card-text>
+                        <div><span class="title">{{ terima.total | currency }}</span></div>
+                        <div>{{ terima.user.name }}</div>
+                      </v-card-text>
+                    </v-card>
+                  </v-timeline-item>
+                </v-slide-x-reverse-transition>
+            </v-timeline>
           </v-col>
         </v-row>
       </v-col>      
